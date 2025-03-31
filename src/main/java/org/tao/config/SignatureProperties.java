@@ -12,7 +12,9 @@ public class SignatureProperties {
     private String timestampField = "timestamp";
     private String signatureField = "signature";
     private Integer expireMinutes = 5;
+
     private Map<String, String> secretKeys = new HashMap<>();
+    private Map<String, String> returnJsons = new HashMap<>();
 
     public Map<String, String> getSecretKeys() {
         return secretKeys;
@@ -52,5 +54,13 @@ public class SignatureProperties {
 
     public void setTimestampField(String timestampField) {
         this.timestampField = timestampField;
+    }
+
+    public Map<String, String> getReturnJsons() {
+        return returnJsons;
+    }
+
+    public void setReturnJsons(Map<String, String> returnJsons) {
+        this.returnJsons = returnJsons;
     }
 }

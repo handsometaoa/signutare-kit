@@ -1,21 +1,29 @@
 package org.tao.anno;
 
+import org.tao.consts.SignatureConst;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.METHOD) // 注解只能用于方法
-@Retention(RetentionPolicy.RUNTIME) // 注解在运行时可见
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface SignatureChecker {
-    
+
     // 服务Code
-    String serviceCode();
-    // 密钥
-    String secretKey() default "";
+    String serviceCode() default SignatureConst.EMPTY_STR;
+
+    // 签名生成密钥
+    String secretKey() default SignatureConst.EMPTY_STR;
+
+    // 签名过期时间，单位为分钟
+    int expireMinutes() default -1;
+
     // 默认为true，表示需要验证签名
     boolean required() default true;
-    // 过期时间，单位为分钟
-    int expireMinutes() default -1;
-    
+
+    // 返回值类型
+    String returnType() default SignatureConst.DEFAULT_RETURN_TYPE;
+
 }

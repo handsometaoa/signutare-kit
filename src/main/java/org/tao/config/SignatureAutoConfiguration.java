@@ -3,6 +3,7 @@ package org.tao.config;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.tao.aspect.SignatureAspect;
 
@@ -16,6 +17,7 @@ import org.tao.aspect.SignatureAspect;
 
 @Configuration
 @EnableConfigurationProperties(SignatureProperties.class)
+@ComponentScan(basePackages = {"org.tao"})
 public class SignatureAutoConfiguration {
 
     @Bean
